@@ -1,0 +1,28 @@
+[mode]
+escape = esc
+insert_before = i
+insert_after = a 
+insert_end_line = A
+insert_beginning_line = I
+
+[normal]
+e = down
+u = up
+s = jump
+p = toggle-preview
+h = backward-char
+l = forward-char
+é = forward-word
+b = backward-word
+d = clear-query
+y = execute(echo {} | xsel -b)
+E = preview-half-page-down
+U = preview-half-page-up
+c = cancel
+x = forward-char+backward-delete-char
+X = backward-delete-char
+
+[insert]
+® = backward-kill-word
+change = top
+backward-eof = abort
