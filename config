@@ -21,6 +21,7 @@ U = preview-half-page-up
 c = cancel
 x = forward-char+backward-delete-char
 X = backward-delete-char
+o = ignore
 
 [insert]
 ® = backward-kill-word
