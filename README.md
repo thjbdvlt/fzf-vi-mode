@@ -32,7 +32,7 @@ but it can quickly become messy, and very unfun to write. as here:
 
 same patterns again and again, plus it is required to be consistent: worth to script it. the simple python script provided here is based on a simple configuration file (read with ), which will export a single line option for fzf (that i personally just copy-paste in my `.bashrc`). here is the one which will generate options above:
 
-```toml
+```conf
 [mode]
 escape = esc
 insert_before = i
