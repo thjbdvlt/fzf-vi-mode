@@ -2,7 +2,7 @@
 
 automates configuration for a pseudo-modal __vim__-like [fzf](https://github.com/junegunn/fzf) (insert and normal modes).
 
-__wonderful software fzf__ can be configured (with `--bind` option) to have something like a vim-like 'normal mode'. with the following options, pressing `esc` will rebind `j` to `up` and `k` to `down`, just like in vim: pseudo-normal-mode. then, pressing `i` will unbind them so they will just be put in query, as they should (pseudo-insert-mode).
+__wonderful software fzf__ can be configured (with `--bind` option) to have something like a vim-like 'normal mode':
 
 ```bash
 fzf --bind=j:down,k:up \
@@ -10,6 +10,8 @@ fzf --bind=j:down,k:up \
     --bind=esc:disable-search+rebind(i,j,k) \
     --bind=i:enable-search+unbind(i,j,k)
 ```
+
+ with the options above, pressing `esc` will rebind `j` to `up` and `k` to `down`, just like in vim: it's a pseudo-normal-mode. then, pressing `i` will unbind them so they will just be put in query, as they should (pseudo-insert-mode).
 
 but it can quickly become messy, and very unfun to write. as here:
 
@@ -30,7 +32,7 @@ but it can quickly become messy, and very unfun to write. as here:
     --bind=®:backward-kill-word,change:top,backward-eof:abort
 ```
 
-same patterns again and again, plus it is required to be consistent: worth to script it. the simple python script provided here is based on a simple configuration file (read with ), which will export a single line option for fzf (that i personally just copy-paste in my `.bashrc`). here is the one which will generate options above:
+same patterns again and again, plus it is required to be consistent: worth to script it. the simple python script provided here is based on a simple configuration file, which will export a single line option for fzf (that i personally just copy-paste and append it to `FZF_DEFAULT_OPTS` in my `.bashrc`). here is the configuration which will generate options above:
 
 ```conf
 [mode]
@@ -66,4 +68,4 @@ backward-eof = abort
 dependancies
 ------------
 
-no dependancies, it uses the [configparser](https://docs.python.org/3/library/configparser.html) standard library module.
+no dependancies, it uses the [configparser](https://docs.python.org/3/library/configparser.html) standard library.
