@@ -1,6 +1,6 @@
 import configparser
 import argparse
-from string import ascii_letters, punctuation
+from string import ascii_letters
 
 
 def read_config():
@@ -26,7 +26,7 @@ def parse_script_args(args=None):
         "--no-ignore",
         action="store_true",
         help="does not add '[key]:ignore' for ascii_letters not specified in config file.",
-        default=False
+        default=False,
     )
     parser.add_argument(
         "-o",
@@ -39,7 +39,6 @@ def parse_script_args(args=None):
 
 
 if __name__ == "__main__":
-
     args = parse_script_args()
     fp = args.output
 
@@ -83,12 +82,8 @@ if __name__ == "__main__":
         (modes["insert_beginning_line"], "beginning-of-line"),
     ]
     b = [insert_mode(i, j) for i, j in a]
-    insert_bindings = [
-        f"{k}:{v}" for k, v in config["insert"].items()
-    ]
-    allkeys = (
-        bind_list + b + [normal] + insert_bindings + bind_ignored
-    )
+    insert_bindings = [f"{k}:{v}" for k, v in config["insert"].items()]
+    allkeys = bind_list + b + [normal] + insert_bindings + bind_ignored
 
     with open(fp, "w") as f:
         f.write("--bind='{}'".format(",".join(allkeys)))

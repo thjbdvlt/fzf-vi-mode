@@ -22,6 +22,9 @@ c = cancel
 x = forward-char+backward-delete-char
 X = backward-delete-char
 o = ignore
+tab = toggle+clear-query
+g = last
+G = first
 
 [insert]
 ® = backward-kill-word
